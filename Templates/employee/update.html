@@ -1,0 +1,44 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+<p><h3>Edit Employee Details</h3></p>
+    <form method="POST"  enctype='multipart/form-data'>
+        {% csrf_token %}
+        <div class="mb-3 row">
+            <label for="name" class="col-sm-1 col-form-label">Name:</label>
+            <div class="col-sm-2">
+                <input type="text" name="name" value="{{employee.name}}" class="form-control">
+            </div></div>
+        
+            <div class="mb-3 row">
+                <label for="age" class="col-sm-1 col-form-label">Age:</label>
+                <div class="col-sm-2">
+                    <input type="text" name="age" value="{{employee.age}}" class="form-control">
+            </div></div>    
+        
+            <div class="mb-3 row">
+                <label for="title" class="col-sm-1 col-form-label">Job Title:</label>
+                <div class="col-sm-2">
+                    <input type="text" name="jobtitle" value="{{employee.job_title}}" class="form-control">
+            </div></div> 
+        
+            <div class="mb-3 row">
+                <label for="department" class="col-sm-1 col-form-label">Department:</label>
+                <div class="col-sm-2">
+            <input type="text" name="department" value="{{employee.department}}" class="form-control">
+            </div></div> 
+
+            <div class="mb-3 row">
+                <label for="photo" class="col-sm-1 col-form-label">Photo:</label>
+                <div class="col-sm-2">
+        {% if employee.photo %}
+            <img id="currentPhoto" src="{{employee.photo.url}}" alt="Current Photo"><br><br>
+        {% endif %}
+        <input type="file" name="photo" placeholder="Choose a picture" accept="image/*" class="form-control form-control-sm">
+        </div></div>
+        <div class="mb-3 row">
+            <div class="col-sm-2">
+        <input type="submit" value="Update" class="btn btn-primary mb-3"></div></div>
+    </form>
+    <p><a href="/employee/" class="link-primary">Back to Employee List</a></p>
+{% endblock %}

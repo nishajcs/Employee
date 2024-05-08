@@ -1,0 +1,14 @@
+{% extends "employee/base.html" %}
+{% block content %}
+    <p><h3>Employee List</h3></p>
+    <!-- {{ movies }} -->
+    <div class="col-sm-2">
+    <ul class="list-group list-group-flush">{% for emp in employee %}
+       <li class="list-group-item list-group-item-action"><a href="{{emp.id}}">{{emp.name}}</a></li> 
+    {% endfor %}
+</div>
+<br>
+<p><a href="/employee/add">Add Employee</a></p>
+    
+</ul>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+<p><h3>Add Employee</h3></p>
+    <form  action="/employee/add" method="POST" enctype='multipart/form-data'>
+        {% csrf_token %}
+        <div class="mb-3 row">
+            <div class="col-sm-2">
+                <input type="text" name="name" placeholder="Enter employee name" class="form-control" >
+            </div></div>
+            <div class="mb-3 row">
+                <div class="col-sm-2">
+                    <input type="text" name="age" placeholder="Enter age" class="form-control">
+            </div></div>    
+        
+            <div class="mb-3 row">
+                <div class="col-sm-2">
+        <input type="text" name="jobtitle" placeholder="Enter job title" class="form-control"></div></div>  
+        <div class="mb-3 row">
+            <div class="col-sm-2">
+        <input type="text" name="department" placeholder="Enter department" class="form-control"></div></div> 
+        <div class="mb-3 row">
+            <div class="col-sm-2">
+        <input type="file" name="photo" placeholder="Choose a picture" accept="image/*" class="form-control"></div></div> 
+        <div class="mb-3 row">
+            <div class="col-sm-2">
+        <input type="submit" value="Add" class="btn btn-primary mb-3"></div></div> 
+        <!-- </div> -->
+    </form>
+    <p><a href="/employee/" class="link-primary">Back</a></p>
+{% endblock %}

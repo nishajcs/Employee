@@ -1,0 +1,41 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+<p><h3>Employee Details</h3></p>
+<div class="mb-3 row">
+    <label for="name" class="col-sm-1 col-form-label">Name:</label>
+    <div class="col-sm-2">
+        <input type="text" name="name" value="{{employee.name}}" class="form-control" disabled>
+    </div></div>
+
+    <div class="mb-3 row">
+        <label for="age" class="col-sm-1 col-form-label">Age:</label>
+        <div class="col-sm-2">
+            <input type="text" name="age" value="{{employee.age}}" class="form-control" disabled>
+    </div></div>    
+
+    <div class="mb-3 row">
+        <label for="title" class="col-sm-1 col-form-label">Job Title:</label>
+        <div class="col-sm-2">
+            <input type="text" name="jobtitle" value="{{employee.job_title}}" class="form-control" disabled>
+    </div></div> 
+
+    <div class="mb-3 row">
+        <label for="department" class="col-sm-1 col-form-label">Department:</label>
+        <div class="col-sm-2">
+    <input type="text" name="department" value="{{employee.department}}" class="form-control" disabled>
+    </div></div> 
+
+    <div class="mb-3 row">
+        <label for="photo" class="col-sm-1 col-form-label">Photo:</label>
+        <div class="col-sm-2">
+    {% if employee.photo %}
+        <img src="{{ employee.photo.url}}">
+    {% else %}
+        <label for="photo" class="col-sm-1 col-form-label">None</label>
+    {% endif %}
+    </div></div>
+    <a href="/employee/delete/{{employee.id}}" class="link-primary">Delete</a>&nbsp;
+    <a href="/employee/update/{{employee.id}}" class="link-primary">Update</a>
+    <p><a href="/employee/" class="link-primary">Back</a></p>
+{% endblock %}
